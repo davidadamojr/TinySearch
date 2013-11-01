@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="David Adamo Jr" />
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<title>TinySearch | A Search Engine Implementation in Perl</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/typography.css" />
+	<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+	<style type="text/css">
+
+	</style>
+	<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	   $(document).ready(function(){
+	      $('#basic').click(function(){
+		     if ($('#search_input').val() == ''){
+			    $('.alert').slideDown();
+			 } else {
+                $('input[name=intelligent]').val('0');
+			    $('#searchform').submit();
+			}
+		  });
+		  
+		  $('#intelligent').click(function(){
+		     if ($('#search_input').val() == ''){
+			    $('.alert').slideDown();
+			 } else {
+ 			    $('input[name=intelligent]').val('1');
+			    $('#searchform').submit();
+			}
+		  });
+	   });
+	</script>
+</head>
+<body>
+	<div class="main-wrapper">
+		<div class="inner-wrapper">
+			<div class="main-content" style="">
+				<div class="searchsection" style="">
+					<img src="images/tinysearch.png" alt="FUTA Directory" />
+					<div class="info" style="margin-top:5px;"><!--Looking for information concerning the University of North Texas (UNT)? <b>Start here!</b>--></div>
+					<div class="alert" style="display:none;">
+						<b>Please provide a search string.</b>
+					</div>
+					<div class="searchform" style="">
+						<form id="searchform" method="post" action="searchresults.cgi">
+							<div><input id="search_input" name="querystr" placeholder="Enter a query" type="text" /></div>
+							<div style="margin-top:20px;"><input type="button" id="basic" class="btn" value="Basic Search" />&nbsp;&nbsp;<input id="intelligent" type="button" class="btn" value="Intelligent Search" /></div>
+							<input type="hidden" name="intelligent" value="0" />
+							<input type="hidden" name="page" value="1" />
+						</form>
+						<br class="clear" />
+					</div>
+					<br class="clear" />
+				</div>
+		    </div>
+			<div class="footer">
+				<div class="copyright">
+					<div>Thanks to <i><a href="http://words.bighugelabs.com/api.php" target="_blank">BigHugeLabs</a></i> for their excellent thesaurus API.<br/>
+					Thanks to Dr. Rada Milhacea for her excellent tutelage.<br/>David Adamo Jr.</div>
+				</div>
+				<br class="clear" />
+			</div>
+		</div>
+	</div>	
+</body>
+</html>
